@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+:root {
+  /* Fonts */
+  --font-display: "Cormorant Garamond", serif;
+  --font-body: "DM Sans", sans-serif;
+
+  /* Brand Colors */
+  --primary: #1c4d35;
+  --primary-light: #2e6b4b;
+  --secondary: #6f8f72;
+  --accent: #d8b08c;
+  --background: #faf8f4;
+  --surface: #ffffff;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --border: #e8e2d8;
+
+  /* Shadows */
+  --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 10px 40px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.12);
+
+  /* Radius */
+  --radius-sm: 16px;
+  --radius-md: 24px;
+  --radius-lg: 40px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--background);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  z-index: -1;
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(0,0,0,0.03) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, rgba(0,0,0,0.02) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+p { line-height: 1.8; }
+
+::selection { background: rgba(111, 143, 114, 0.2); color: var(--primary); }
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d8d2c8; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--secondary); }
+
+.section-padding { @apply py-20 lg:py-24; }
+.container-custom { @apply max-w-7xl mx-auto px-6 lg:px-8; }
+.glass-card { background: rgba(255,255,255,0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.5); }
+.card-shadow { box-shadow: var(--shadow-md); }
+.heading-xl { @apply text-5xl md:text-6xl lg:text-7xl; }
+.heading-lg { @apply text-4xl md:text-5xl; }
+.text-muted { color: var(--text-secondary); }
+.font-display { font-family: var(--font-display); }
