@@ -13,5 +13,7 @@ export function getStripeClient(region: "IN" | "US" | string = "IN"): Stripe {
     throw new Error(`Stripe key missing for region ${region}. Check .env.local`);
   }
 
-  return new Stripe(key, { apiVersion: "2025-05-28.basil" });
+  return new Stripe(key, {
+  apiVersion: "2025-02-24.acacia",
+});
 }
