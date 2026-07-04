@@ -42,7 +42,7 @@ export default function Footer() {
               </div>
               <div className="flex gap-3">
                 <Mail size={16} className="mt-0.5 shrink-0" />
-                <a href="mailto:info@ecopract.co.in" className="hover:text-white transition">info@ecopract.co.in</a>
+                <a href="mailto:info@ecopract.com" className="hover:text-white transition">info@ecopract.com</a>
               </div>
               <div className="flex gap-3">
                 <MapPin size={16} className="mt-0.5 shrink-0" />
