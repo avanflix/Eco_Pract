@@ -4,7 +4,7 @@ import { Phone, Mail, MapPin, Clock, CheckCircle, MessageCircle, Loader2 } from 
 
 const contacts = [
   { icon: Phone, label: "Phone", value: "+91 7036777677", href: "tel:+917036777677" },
-  { icon: Mail, label: "Email", value: "info@ecopract.co.in", href: "mailto:info@ecopract.co.in" },
+  { icon: Mail, label: "Email", value: "info@ecopract.com", href: "mailto:info@ecopract.com" },
   {
     icon: MapPin,
     label: "Address",
