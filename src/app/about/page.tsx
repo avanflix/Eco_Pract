@@ -2,12 +2,12 @@ import Image from "next/image";
 import { Heart, Leaf, Globe, Award, Users, Sprout } from "lucide-react";
 
 const journey = [
-  { year: "2018", title: "The Seed of an Idea", desc: "Our founder, passionate about zero-waste living, discovered areca palm leaves as a natural alternative to plastic in rural Andhra Pradesh." },
-  { year: "2019", title: "First Women's Collective", desc: "We partnered with 12 women in a small village near Hyderabad, training them in traditional leaf-plate crafting techniques passed down for generations." },
-  { year: "2021", title: "Growing the Family", desc: "Over 80 women were employed across 5 villages. Each artisan earns a fair wage, creating real financial independence for their families." },
-  { year: "2022", title: "Reaching America", desc: "Our first shipment to the USA. American families and restaurants discovered that going green can also mean beautiful, functional dining." },
-  { year: "2024", title: "200+ Women, One Mission", desc: "Today, more than 200 women artisans across Telangana and Andhra Pradesh craft every plate by hand, with pride and purpose." },
-  { year: "Now", title: "Every Order Changes a Life", desc: "When you buy from EcoPract, you're not just going eco — you're sending a meal to a child, school fees for a daughter, hope to a family." },
+  { id: 1, year: "2024", title: "The Seed of an Idea", desc: "Our founder, passionate about zero-waste living, discovered areca palm leaves as a natural alternative to plastic in rural Andhra Pradesh." },
+  { id: 2, year: "2024", title: "First Women's Collective", desc: "We partnered with 12 women in a small village near Hyderabad, training them in traditional leaf-plate crafting techniques passed down for generations." },
+  { id: 3, year: "2025", title: "Growing the Family", desc: "Over 80 women were employed across 5 villages. Each artisan earns a fair wage, creating real financial independence for their families." },
+  { id: 4, year: "2025", title: "Reaching America", desc: "Our first shipment to the USA. American families and restaurants discovered that going green can also mean beautiful, functional dining." },
+  { id: 5, year: "2025", title: "200+ Women, One Mission", desc: "Today, more than 200 women artisans across Telangana and Andhra Pradesh craft every plate by hand, with pride and purpose." },
+  { id: 6, year: "Now", title: "Every Order Changes a Life", desc: "When you buy from EcoPract, you're not just going eco — you're sending a meal to a child, school fees for a daughter, hope to a family." },
 ];
 
 const stats = [
@@ -18,9 +18,27 @@ const stats = [
 ];
 
 const womenStories = [
-  { name: "Lakshmi Devi", role: "Master Artisan, 6 years", quote: "This work gave me the ability to send my children to school. I take pride in every plate I make knowing it reaches a family in America.", region: "Manikonda, Hyderabad" },
-  { name: "Padma Reddy", role: "Team Leader, 4 years", quote: "Before EcoPract, I depended entirely on my husband. Now I have my own income, my own savings. I feel like a new person.", region: "Chitrapuri Colony" },
-  { name: "Sunitha Rao", role: "Quality Checker, 3 years", quote: "We use skills our grandmothers had — working with natural leaves. EcoPract made those skills valuable again.", region: "Telangana Villages" },
+  {
+    name: "Sunitha",
+    role: "Quality Checker, 2 years",
+    quote:
+      "Maa amma, ammamma nerpinchina pani ki ippudu manchi viluva vachindi. EcoPract valla maa oorilo chaala mandhi aadavallaki upadhi dorikindi. Maa kutumbam kosam memu garvanga pani chestunnam.",
+    region: "Eluru, Andhra Pradesh",
+  },
+  {
+    name: "Lakshmi",
+    role: "Master Artisan, 1+ years",
+    quote:
+      "ఈ పని వల్ల మా ఇంటికి మంచి ఆధారం దొరికింది. మా పిల్లల్ని బాగా చదివిస్తున్నాం. మా చేతులతో చేసిన ప్లేట్లు అమెరికా వరకు వెళుతున్నాయంటే చాలా సంతోషంగా ఉంటుంది.",
+    region: "West Godavari, Andhra Pradesh",
+  },
+  {
+    name: "Padma",
+    role: "Team Leader, 2 years",
+    quote:
+      "Mundhu intlo ne undedanni. Ippudu naa sampadanatho inti kharchullo nenu kuda sahayam chesthunna. Maa laanti mahilalaki ee pani chaala pedda andaga undi.",
+    region: "Rajamundry, Andhra Pradesh",
+  },
 ];
 
 export default function AboutPage() {
@@ -34,8 +52,8 @@ export default function AboutPage() {
             Plates Made with <span className="text-[var(--primary)]">Purpose</span>
           </h1>
           <p className="mt-8 text-lg text-[var(--text-secondary)] max-w-3xl mx-auto leading-relaxed">
-            EcoPract began with a simple belief: that what we eat from should not cost the earth. 
-            But it grew into something far more powerful — a movement that empowers women, preserves tradition, 
+            EcoPract began with a simple belief: that what we eat from should not cost the earth.
+            But it grew into something far more powerful — a movement that empowers women, preserves tradition,
             and brings sustainable beauty to American tables.
           </p>
         </div>
@@ -54,17 +72,17 @@ export default function AboutPage() {
                 Behind every plate is a woman who deserves to be seen
               </h2>
               <p className="mt-6 text-[var(--text-secondary)] leading-relaxed">
-                In the villages of Telangana and Andhra Pradesh, women have used areca palm leaves 
+                In the villages of Telangana and Andhra Pradesh, women have used areca palm leaves
                 for centuries. But without markets, their craft went unrecognized and unpaid.
               </p>
               <p className="mt-4 text-[var(--text-secondary)] leading-relaxed">
-                EcoPract changed that. We built a supply chain that puts these women first — fair wages, 
-                safe working conditions, and the dignity of being a skilled artisan whose work reaches 
+                EcoPract changed that. We built a supply chain that puts these women first — fair wages,
+                safe working conditions, and the dignity of being a skilled artisan whose work reaches
                 homes across the United States.
               </p>
               <p className="mt-4 text-[var(--text-secondary)] leading-relaxed">
-                When you set a table with our plates, you're telling the story of Lakshmi who 
-                now pays her daughter's school fees, of Padma who opened a savings account for 
+                When you set a table with our plates, you're telling the story of Lakshmi who
+                now pays her daughter's school fees, of Padma who opened a savings account for
                 the first time, of Sunitha who leads a team of 15 women with confidence and pride.
               </p>
             </div>
@@ -106,24 +124,43 @@ export default function AboutPage() {
             <span className="text-[var(--primary)] uppercase tracking-widest text-sm font-medium">Our Journey</span>
             <h2 className="mt-4 font-display text-4xl font-semibold">From a Village to Your Table</h2>
           </div>
+          <div className="relative max-w-6xl mx-auto">
 
-          <div className="relative max-w-4xl mx-auto">
-            <div className="absolute left-6 lg:left-1/2 top-0 bottom-0 w-px bg-[var(--border)] -translate-x-1/2" />
-            <div className="space-y-12">
+            {/* Center Line */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-[var(--border)] -translate-x-1/2" />
+
+            <div className="space-y-16">
               {journey.map((item, idx) => (
-                <div key={item.year} className={`relative flex gap-8 lg:gap-0 ${idx % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}`}>
-                  <div className={`lg:w-1/2 ${idx % 2 === 0 ? "lg:pr-16 lg:text-right" : "lg:pl-16"} pl-16 lg:pl-0`}>
-                    <div className="bg-white rounded-3xl p-6 shadow-sm border border-[var(--border)] hover:shadow-md transition">
-                      <span className="text-[var(--primary)] font-bold text-sm">{item.year}</span>
-                      <h3 className="font-display text-xl font-semibold mt-1">{item.title}</h3>
-                      <p className="text-[var(--text-secondary)] mt-2 text-sm leading-relaxed">{item.desc}</p>
+                <div
+                  key={item.id}
+                  className={`relative flex items-center ${idx % 2 === 0 ? "justify-start" : "justify-end"
+                    }`}
+                >
+                  {/* Card */}
+                  <div className="w-full lg:w-[45%]">
+                    <div className="bg-white rounded-3xl p-6 shadow-sm border border-[var(--border)] hover:shadow-lg transition-all duration-300">
+                      <span className="text-[var(--primary)] font-bold text-sm">
+                        {item.year}
+                      </span>
+
+                      <h3 className="font-display text-2xl font-semibold mt-2">
+                        {item.title}
+                      </h3>
+
+                      <p className="text-[var(--text-secondary)] mt-3 leading-relaxed">
+                        {item.desc}
+                      </p>
                     </div>
                   </div>
-                  <div className="absolute left-6 lg:left-1/2 top-6 w-3 h-3 bg-[var(--primary)] rounded-full -translate-x-1/2 ring-4 ring-[var(--background)]" />
+
+                  {/* Dot */}
+                  <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-[var(--primary)] border-4 border-[var(--background)] z-10" />
                 </div>
               ))}
             </div>
           </div>
+
+
         </div>
       </section>
 
@@ -177,8 +214,8 @@ export default function AboutPage() {
               <Sprout size={32} className="text-[var(--primary)] mb-6" />
               <h2 className="font-display text-4xl font-semibold">Why Areca Leaf?</h2>
               <p className="mt-6 text-[var(--text-secondary)] leading-relaxed">
-                Areca palm leaves fall naturally — no trees are cut, no forests harmed. 
-                After serving your meal beautifully, each plate decomposes within 60 days, 
+                Areca palm leaves fall naturally — no trees are cut, no forests harmed.
+                After serving your meal beautifully, each plate decomposes within 60 days,
                 returning nutrients to the soil with zero chemical residue.
               </p>
               <ul className="mt-6 space-y-3">

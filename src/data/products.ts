@@ -16,7 +16,7 @@ export type Product = {
 export const products: Product[] = [
   {
     id: 1, name: '8" Buffet Plate', slug: "8-buffet-plate", category: "buffet-plates",
-    description: "Perfect for appetizers and small portions. 100% biodegradable areca palm leaf.",
+    description: "Perfect for appetizers and small portions. 100% biodegradable Sal & Palash palm leaf.",
     image: "/images/categories/plates.jpg", packSize: 20,
     tiers: {
       normal:   { perPlate: 0.60, perPack: 12.00 },

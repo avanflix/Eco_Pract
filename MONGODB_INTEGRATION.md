@@ -23,7 +23,7 @@
   "size": "8 Inch",
   "packSize": 20,
   "image": "/images/products/buffet-plate.jpg",
-  "description": "Premium Areca Buffet Plate",
+  "description": "Premium Sal & Palash Buffet Plate",
   "pricing": {
     "normal":   { "pricePerPlate": 6,   "pricePerPack": 120 },
     "bulk1000": { "pricePerPlate": 5.5, "pricePerPack": 110 },

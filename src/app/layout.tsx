@@ -6,8 +6,8 @@ import SessionExpiredToast from "../components/shared/SessionExpiredToast";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "EcoPract — Sustainable Areca Leaf Plates",
-  description: "Premium biodegradable areca leaf plates and bowls. Handcrafted by women artisans in India, used across the USA.",
+  title: "EcoPract — Sustainable Sal & Palash Leaf Plates",
+  description: "Premium biodegradable Sal & Palash leaf plates and bowls. Handcrafted by women artisans in India, used across the USA.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

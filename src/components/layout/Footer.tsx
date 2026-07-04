@@ -10,7 +10,7 @@ export default function Footer() {
           <div>
             <h2 className="font-display text-4xl font-semibold">EcoPract</h2>
             <p className="mt-6 text-gray-400 leading-relaxed text-sm">
-              Premium biodegradable areca leaf plates, handcrafted by women artisans in India. 
+              Premium biodegradable Sal & Palash leaf plates, handcrafted by women artisans in India. 
               Delivered across the USA. Every purchase supports a family.
             </p>
             <div className="flex gap-4 mt-8">

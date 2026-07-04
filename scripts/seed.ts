@@ -27,7 +27,7 @@ const products = [
   {
     name: "8 Inch Buffet Plate", slug: "8-inch-buffet-plate", category: "buffet-plates",
     size: "8 Inch", packSize: 100, image: "/images/categories/plates.jpg",
-    description: "Premium Areca Buffet Plate — perfect for appetizers and small portions.",
+    description: "Premium Sal & Palash Buffet Plate perfect for appetizers and small portions.",
     pricing: {
       normal:   { pricePerPlate: 0.60, pricePerPack: 12.00 },   // pack of 20
       bulk1000: { pricePerPlate: 0.55, pricePerPack: 55.00 },   // pack of 100 → 1000 = 10 packs = $550; but per product spec: 800 per pack, total 8000
@@ -104,7 +104,7 @@ const products = [
   {
     name: "Idly Plate", slug: "idly-plate", category: "special",
     packSize: 100, image: "/images/categories/plates.jpg",
-    description: "Traditional idly plate with compartments, made from natural areca leaf.",
+    description: "Traditional idly plate with compartments, made from natural Sal & Palash leaf.",
     pricing: {
       normal:   { pricePerPlate: 0.90, pricePerPack: 90.00 },
       bulk1000: { pricePerPlate: 0.80, pricePerPack: 80.00 },  // 1000 = 10 packs × $80 = $800 total

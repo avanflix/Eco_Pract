@@ -17,7 +17,7 @@ type Tiers = Partial<Record<OrderTier, { perPlate: number; perPack: number }>>;
 
 function toTiers(pricing: ProductAPI["pricing"]): Tiers {
   return {
-    normal:   { perPlate: pricing.normal.pricePerPlate,   perPack: pricing.normal.pricePerPack },
+    normal: { perPlate: pricing.normal.pricePerPlate, perPack: pricing.normal.pricePerPack },
     bulk1000: { perPlate: pricing.bulk1000.pricePerPlate, perPack: pricing.bulk1000.pricePerPack },
     bulk5000: { perPlate: pricing.bulk5000.pricePerPlate, perPack: pricing.bulk5000.pricePerPack },
     ...(pricing.premium ? { premium: { perPlate: pricing.premium.pricePerPlate, perPack: pricing.premium.pricePerPack } } : {}),
@@ -25,23 +25,23 @@ function toTiers(pricing: ProductAPI["pricing"]): Tiers {
 }
 
 const tierLabels: Record<OrderTier, string> = {
-  normal:   "Normal",
+  normal: "Normal",
   bulk1000: "Bulk 1000",
   bulk5000: "Bulk 5000",
-  premium:  "Premium",
+  premium: "Premium",
 };
 
 const tierColors: Record<OrderTier, string> = {
-  normal:   "bg-gray-100 text-gray-700 border-gray-300",
+  normal: "bg-gray-100 text-gray-700 border-gray-300",
   bulk1000: "bg-blue-50 text-blue-700 border-blue-300",
   bulk5000: "bg-green-50 text-green-700 border-green-300",
-  premium:  "bg-amber-50 text-amber-700 border-amber-300",
+  premium: "bg-amber-50 text-amber-700 border-amber-300",
 };
 
 const categoryDisplay: Record<string, string> = {
   "buffet-plates": "Buffet Plates",
-  bowls:           "Bowls",
-  special:         "Special",
+  bowls: "Bowls",
+  special: "Special",
 };
 
 function getTierPriceDisplay(tier: OrderTier, tierData: { perPlate: number; perPack: number }, packSize: number) {
@@ -88,7 +88,53 @@ export default function ProductsSection() {
 
   const uniqueCategories = Array.from(new Set(products.map((p) => p.category)));
   const categories = ["All", ...uniqueCategories];
-  const filtered = activeCategory === "All" ? products : products.filter((p) => p.category === activeCategory);
+  const sizeOrder = [
+    '3"',
+    '4"',
+    '4.5"',
+    '5"',
+    '6"',
+    '7"',
+    '8"',
+    '9"',
+    '10"',
+    '11"',
+    '12"',
+    '13"'
+  ];
+
+  const filtered = (
+    activeCategory === "All"
+      ? [...products]
+      : products.filter((p) => p.category === activeCategory)
+  ).sort((a, b) => {
+    const getPriority = (product: ProductAPI) => {
+      const name = product.name.toLowerCase();
+      const category = product.category.toLowerCase();
+
+      // Bowls always last
+      if (category.includes("bowl") || name.includes("bowl")) return 2;
+
+      // Idly plates after normal plates
+      if (name.includes("idly")) return 1;
+
+      // Normal plates first
+      return 0;
+    };
+
+    const priorityDiff = getPriority(a) - getPriority(b);
+    if (priorityDiff !== 0) return priorityDiff;
+
+    // Sort by size within the same group
+    const getSize = (size?: string) => {
+      if (!size) return Number.MAX_VALUE;
+
+      const match = size.match(/[\d.]+/);
+      return match ? parseFloat(match[0]) : Number.MAX_VALUE;
+    };
+
+    return getSize(a.size) - getSize(b.size);
+  });
 
   const getTier = (slug: string): OrderTier => selectedTiers[slug] ?? "normal";
 
@@ -131,9 +177,9 @@ export default function ProductsSection() {
       <div className="container-custom">
         <div className="text-center mb-12">
           <span className="text-[var(--primary)] uppercase tracking-widest text-sm font-medium">Our Collection</span>
-          <h2 className="heading-lg mt-4 font-display">Areca Leaf Plates & Bowls</h2>
+          <h2 className="heading-lg mt-4 font-display">Sal & Palash Leaf Plates & Bowls</h2>
           <p className="text-[var(--text-secondary)] mt-4 max-w-2xl mx-auto">
-            Choose your size and order tier. Bulk orders get the best per-plate price — perfect for events and restaurants.
+            Choose your size and order tier. Bulk orders get the best per-plate price perfect for events and restaurants.
           </p>
         </div>
 
@@ -155,11 +201,10 @@ export default function ProductsSection() {
         <div className="flex gap-3 mb-10 flex-wrap">
           {categories.map((cat) => (
             <button key={cat} onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2.5 rounded-full text-sm font-medium border transition ${
-                activeCategory === cat
-                  ? "bg-[var(--primary)] text-white border-[var(--primary)]"
-                  : "bg-white border-[var(--border)] hover:border-[var(--primary)] hover:text-[var(--primary)]"
-              }`}>
+              className={`px-5 py-2.5 rounded-full text-sm font-medium border transition ${activeCategory === cat
+                ? "bg-[var(--primary)] text-white border-[var(--primary)]"
+                : "bg-white border-[var(--border)] hover:border-[var(--primary)] hover:text-[var(--primary)]"
+                }`}>
               {cat === "All" ? "All" : (categoryDisplay[cat] ?? cat)}
             </button>
           ))}
@@ -175,10 +220,10 @@ export default function ProductsSection() {
         {!loading && !error && (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {filtered.map((product) => {
-              const tier      = getTier(product.slug);
-              const tiers     = toTiers(product.pricing);
-              const tierData  = tiers[tier];
-              const cartQty   = getCartQty(product.slug, tier);
+              const tier = getTier(product.slug);
+              const tiers = toTiers(product.pricing);
+              const tierData = tiers[tier];
+              const cartQty = getCartQty(product.slug, tier);
               const priceDisplay = tierData ? getTierPriceDisplay(tier, tierData, product.packSize) : null;
 
               return (
@@ -212,11 +257,10 @@ export default function ProductsSection() {
                         {(Object.keys(tiers) as OrderTier[]).map((t) => (
                           <button key={t}
                             onClick={() => handleTierChange(product.slug, t)}
-                            className={`px-2.5 py-1 rounded-full text-xs border transition ${
-                              tier === t
-                                ? "bg-[var(--primary)] text-white border-[var(--primary)]"
-                                : "border-gray-200 hover:border-[var(--primary)] hover:text-[var(--primary)]"
-                            }`}>
+                            className={`px-2.5 py-1 rounded-full text-xs border transition ${tier === t
+                              ? "bg-[var(--primary)] text-white border-[var(--primary)]"
+                              : "border-gray-200 hover:border-[var(--primary)] hover:text-[var(--primary)]"
+                              }`}>
                             {tierLabels[t]}
                           </button>
                         ))}

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ShoppingBag, Menu, X, User, LogOut, Package, Settings } from "lucide-react";
 import { useState } from "react";
 import { useCart } from "@/src/app/context/CartContext";
+import Image from "next/image";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -10,8 +11,8 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Products", href: "/#products" },
     { name: "About", href: "/about" },
+    { name: "Products", href: "/#products" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -19,10 +20,18 @@ export default function Navbar() {
     <>
       <header className="fixed top-0 left-0 right-0 z-50">
         <div className="container-custom">
-          <div className="mt-4">
-            <div className="flex items-center justify-between rounded-full border border-white/50 bg-white/85 backdrop-blur-xl px-6 lg:px-8 py-4 shadow-lg">
-              <Link href="/" className="font-display text-3xl font-semibold text-[var(--primary)]">
-                EcoPract
+          <div className="mt-1">
+            <div className="flex items-center justify-between rounded-full border border-white/50 bg-white/85 backdrop-blur-xl px-2 lg:px-4 py-2 shadow-lg">
+
+              <Link href="/" className="flex items-center">
+                <Image
+                  src="/logo/logo_bg.png" // Update with your logo path
+                  alt="EcoPract Logo"
+                  width={180}
+                  height={50}
+                  priority
+                  className="h-10 w-auto lg:h-12"
+                />
               </Link>
 
               <nav className="hidden lg:flex items-center gap-8">

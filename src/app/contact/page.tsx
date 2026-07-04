@@ -11,7 +11,7 @@ const contacts = [
     value: "Villa No. 178, Chitrapuri Colony, Manikonda, Hyderabad 500104",
     href: "https://www.google.com/maps?q=Chitrapuri+Colony+Manikonda+Hyderabad",
   },
-  { icon: Clock, label: "Hours", value: "Mon–Sat, 9 AM – 7 PM IST", href: "#" },
+  { icon: Clock, label: "Hours", value: "Mon–Sat   9 AM – 7 PM IST", href: "#" },
 ];
 
 export default function ContactPage() {
@@ -52,7 +52,7 @@ export default function ContactPage() {
             We'd love to <em className="italic text-[var(--primary)]">hear</em> from you
           </h1>
           <p className="mt-6 text-[var(--text-secondary)] text-lg max-w-xl">
-            Whether you have a bulk order inquiry, need help, or just want to share the love —
+            Whether you have a bulk order inquiry, need help, or just want to share the love
             we're always available.
           </p>
         </div>
@@ -90,7 +90,7 @@ export default function ContactPage() {
               <MessageCircle size={22} className="mb-3 text-white/70" />
               <p className="font-display text-xl font-semibold">Bulk Orders?</p>
               <p className="text-white/75 text-sm mt-2 leading-relaxed">
-                For orders above 1,000 or 5,000 units, we offer special pricing. Reach out and
+                For orders above 1,000 units, we offer special pricing. Reach out and
                 we'll create a custom quote within 24 hours.
               </p>
             </div>
